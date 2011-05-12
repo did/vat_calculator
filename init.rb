@@ -1,1 +1,1 @@
-require 'vat_helpers'
+require 'vat_calculator'
