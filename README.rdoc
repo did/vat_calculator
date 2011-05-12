@@ -1,0 +1,107 @@
+= Description
+
+Use this plugin to validate VAT numbers for european countries as well as to get the tax rate depending on the country of the buyer.
+
+= Basic Usage
+
+To validate a model field as a valid intracom VAT number :
+
+  validates :vat_number, :vat => true
+
+It may be optional like this :
+
+  validates :vat_number, :vat => true, :allow_blank => true
+
+If you want the VAT number's country to match another kind of country field, use
+the 'country_method' option :
+
+  validates :vat_number, :vat => { :country_method => :my_method }
+
+where it is supposed that your model has a method named 'my_method' which
+returns the country ISO code you want to match. The available country codes
+available for Europa are: DE, AT, BE, BG, CY, DK, ES, EE, FI, FR, EL, HU, IE,
+IT, LV, LT, LU, MT, NL, PL, PT, GB, RO, SK, SI, SE and CZ.
+
+Example :
+
+  class Invoice < ActiveRecord::Base
+    validates :vat_number, :vat => { :country_method => :country_code }
+
+    # Logic to return the country code
+    def country_code
+      case country.downcase
+        when 'belgium' then 'BE'
+        when 'france'  then 'FR'
+        when 'sweden'  then 'SE'
+        # ...
+        else nil
+      end
+    end
+  end
+
+== Validating the Number at VIES
+
+It's also possible to have the VAT number validated against Europa's VIES
+webservice. Simply use the :vies option like this :
+
+  validates :vat_number, :vat => { :vies => true }
+
+Keep in mind that the webservice might be offline at some time for some
+countries. Check the VIES FAQ for more information about that.
+
+
+== Getting the tax rate
+
+First set the country of the seller in your config/application.rb file
+
+  config.vta_applied_for = 'FR' # or 'BE', etc....
+
+Note: by default, the value of the vta_applied_for option is set to 'FR'
+
+Let's review the different cases for a seller in France:
+
+1. the seller is outside Europe
+
+  VatHelpers::Rate.get('US') # returns 0.0
+
+2. the buyer is in France
+
+  VatHelpers::Rate.get('FR') # returns 19.6
+
+3. the buyer is in Europe without a vat number
+
+  VatHelpers::Rate.get('BE') # returns 19.6
+
+4. the buyer is in Europe with a vat number
+
+  VatHelpers::Rate.get('BE', { :vat_number => 'a_valid_vat_number' }) # returns 0.0
+
+5. the buyer is in Martinique, Guadeloupe or la Réunion
+
+  VatHelpers::Rate.get('MQ') # returns 8.5
+
+6. the buyer is in French Guyana
+
+  VatHelpers::Rate.get('GF') # returns 0.0
+
+
+= Installation
+
+In your project's Gemfile :
+
+gem 'vat_helpers', :git => 'git://github.com/did/vat_helpers.git'
+
+= Tests
+
+If you want to run the specs :
+
+  rake spec
+
+= Credits
+
+This plugin in released under MIT license by Aurélien Malisart (see MIT-LICENSE
+file).
+
+Enhanced by Didier Lafforgue (didier@nocoffee.fr)
+
+(c) http://aurelien.malisart.be
