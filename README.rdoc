@@ -16,27 +16,27 @@ Let's review the different cases for a seller in France:
 
 1. the seller is outside Europe
 
-  VatCalculator::Rate.get('US') # returns 0.0
+  VatCalculator.get('US') # returns 0.0
 
 2. the buyer is in France
 
-  VatCalculator::Rate.get('FR') # returns 19.6
+  VatCalculator.get('FR') # returns 19.6
 
 3. the buyer is in Europe without a vat number
 
-  VatCalculator::Rate.get('BE') # returns 19.6
+  VatCalculator.get('BE') # returns 19.6
 
 4. the buyer is in Europe with a vat number
 
-  VatCalculator::Rate.get('BE', { :vat_number => 'a_valid_vat_number' }) # returns 0.0
+  VatCalculator.get('BE', { :vat_number => 'a_valid_vat_number' }) # returns 0.0
 
 5. the buyer is in Martinique, Guadeloupe or la Réunion
 
-  VatCalculator::Rate.get('MQ') # returns 8.5
+  VatCalculator.get('MQ') # returns 8.5
 
 6. the buyer is in French Guyana
 
-  VatCalculator::Rate.get('GF') # returns 0.0
+  VatCalculator.get('GF') # returns 0.0
 
 = Installation
 
