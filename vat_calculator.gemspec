@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.3.4"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6")
 
-  s.add_dependency 'active_support'
+  s.add_dependency 'activesupport'
 end
