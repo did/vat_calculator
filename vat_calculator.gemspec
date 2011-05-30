@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.description = "Helper to calculate the VAT rate"
   s.homepage = "http://github.com/did/vat_calculator"
 
-  s.version = "1.2"
+  s.version = "1.2.1"
   s.date = "2011-05-12"
 
   s.authors = ["Didier Lafforgue"]
