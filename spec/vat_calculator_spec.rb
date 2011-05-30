@@ -7,7 +7,7 @@ describe 'Processing tax rate' do
       VatCalculator.get(nil)
     }.should raise_exception(VatCalculator::NoCountryException)
   end
-  
+
   it 'should raise an exception of the country of the seller is not recorded' do
     lambda {
       VatCalculator.get('FR', { :base_country_code => 'DE' })
@@ -28,11 +28,12 @@ describe 'Processing tax rate' do
       VatCalculator.get('IT', { :vat_number => 'valid_number' }).should == 0.0
     end
 
-    %w(GP MQ RE).each do |code|
-      it "shoud apply a different tax rate if the buyer is in the country with the '#{code}' code" do
-        VatCalculator.get(code).should == 8.5
-      end
-    end
+    # Note (Did): see the vat_calculator.rb file for more explanations
+    # %w(GP MQ RE).each do |code|
+    #   it "shoud apply a different tax rate if the buyer is in the country with the '#{code}' code" do
+    #     VatCalculator.get(code).should == 8.5
+    #   end
+    # end
 
     it 'shoud not apply tax if the buyer lives in French Guyana' do
       VatCalculator.get('GF').should == 0.0

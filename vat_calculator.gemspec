@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6")
 
   s.add_dependency 'activesupport'
+  s.add_dependency 'vat_validator'
 end

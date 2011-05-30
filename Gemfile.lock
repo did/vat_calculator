@@ -7,8 +7,15 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    activemodel (3.0.7)
+      activesupport (= 3.0.7)
+      builder (~> 2.1.2)
+      i18n (~> 0.5.0)
     activesupport (3.0.7)
+    builder (2.1.2)
     diff-lcs (1.1.2)
+    httpclient (2.2.0.2)
+    i18n (0.5.0)
     rake (0.8.7)
     rspec (2.0.1)
       rspec-core (~> 2.0.1)
@@ -20,12 +27,21 @@ GEM
     rspec-mocks (2.0.1)
       rspec-core (~> 2.0.1)
       rspec-expectations (~> 2.0.1)
+    soap (0.0.2)
+      builder (>= 2.1.2)
+    soap4r (1.5.8)
+      httpclient (>= 2.1.1)
+    vat_validator (1.1)
+      soap
+      soap4r
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemodel
   activesupport (>= 3.0.4)
   mocha!
   rake
   rspec (~> 2.0.0)
+  vat_validator
