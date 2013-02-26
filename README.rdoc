@@ -14,7 +14,7 @@ Note: by default, the value of the vat_calculator_base_country option is set to 
 
 Let's review the different cases for a seller in France:
 
-1. the seller is outside Europe
+1. the buyer is outside Europe
 
   VatCalculator.get('US') # returns 0.0
 

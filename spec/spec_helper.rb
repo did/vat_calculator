@@ -3,6 +3,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 
 require 'rubygems'
 require 'bundler'
+
 Bundler.setup
 Bundler.require(:test)
 
@@ -10,6 +11,6 @@ require 'mocha'
 require 'rspec'
 require 'vat_calculator'
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.mock_with :mocha
 end
