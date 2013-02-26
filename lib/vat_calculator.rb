@@ -111,7 +111,7 @@ module VatCalculator
   end
 
   def self.vat_number_existence?(number)
-    VatValidator::ViesChecker.check(value.to_s[0..1], value.to_s[2..15])
+    VatValidator::ViesChecker.check(number.to_s[0..1], number.to_s[2..15])
   end
 
 end
