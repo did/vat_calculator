@@ -1,8 +1,8 @@
-= Description
+# Description
 
 Use this plugin to calculate the VAT rate depending on the country of the buyer.
 
-== Configuration
+# Configuration
 
 First set the country of the seller in your config/application.rb file
 
@@ -10,7 +10,7 @@ First set the country of the seller in your config/application.rb file
 
 Note: by default, the value of the vat_calculator_base_country option is set to 'FR'
 
-== Basic usage
+# Basic usage
 
 Let's review the different cases for a seller in France:
 
@@ -38,19 +38,19 @@ Let's review the different cases for a seller in France:
 
   VatCalculator.get('GF') # returns 0.0
 
-= Installation
+# Installation
 
 In your project's Gemfile :
 
-gem 'vat_calculator', :git => 'git://github.com/did/vat_calculator.git'
+  gem 'vat_calculator', :git => 'git://github.com/did/vat_calculator.git'
 
-= Tests
+# Tests
 
 If you want to run the specs :
 
-  rake spec
+  bundle exec rake spec
 
-= Credits
+# Credits
 
 This plugin in released under MIT license by Didier Lafforgue (see MIT-LICENSE
 file).
