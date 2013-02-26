@@ -5,6 +5,14 @@ GIT
     mocha (0.11.3)
       metaclass (~> 0.0.1)
 
+PATH
+  remote: .
+  specs:
+    vat_calculator (1.2.2)
+      activesupport
+      savon (~> 1.2.0)
+      vat_validator
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -63,4 +71,5 @@ DEPENDENCIES
   rake
   rspec
   savon (= 1.2.0)
+  vat_calculator!
   vat_validator

@@ -1,11 +1,8 @@
 source :rubygems
 
-gem 'rake'
+gemspec
 
-gem 'activesupport', '>= 3.0.4'
-gem 'activemodel'
-gem 'savon', '1.2.0'
-gem 'vat_validator'
+gem 'rake'
 
 group :test do
   gem 'rspec'
