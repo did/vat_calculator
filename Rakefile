@@ -1,6 +1,7 @@
 require 'rubygems'
-# require 'rake'
-# require 'rdoc/task'
+require 'rdoc/task'
+
+Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
 
@@ -13,13 +14,3 @@ task :spec do
 end
 
 task :default => [ :spec ]
-
-# begin
-#   puts "yeah"
-#   require 'rspec/core/rake_task'
-#   puts "wrong"
-
-#   task :default => [ :spec ]
-# rescue LoadError
-#   puts "Unable to load rspec rake task"
-# end
